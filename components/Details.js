@@ -11,7 +11,6 @@ import {
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
-import popularData from '../assets/data/popularData';
 
 const renderIngredientsItem = ({item}) => {
   return (
@@ -87,6 +86,7 @@ const Details = ({route, navigation}) => {
             keyExtractor={item => item.id}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{paddingVertical: 5}}
           />
         </View>
       </View>
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   ingredientListWrapper: {
-    paddingVertical: 20,
+    paddingBottom: 20,
   },
   ingredient: {
     alignItems: 'center',

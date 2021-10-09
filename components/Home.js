@@ -41,7 +41,9 @@ const renderCategoryItem = ({item}) => {
 
 const RenderPopularData = ({item, navigation}) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate('Details', {item})}>
       <View
         style={[
           styles.popularCardWrapper,
@@ -128,12 +130,15 @@ const Home = ({navigation}) => {
               keyExtractor={item => item.id}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                paddingVertical: 5,
+              }}
             />
           </View>
         </View>
 
         {/* Popular Section */}
-        <View>
+        <View style={styles.popularWrapper}>
           <Text style={styles.title}>Popular</Text>
           {popularData.map(data => (
             <RenderPopularData
@@ -305,6 +310,9 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
 
+  popularWrapper: {
+    marginBottom: 20,
+  },
   //   right wrapper
   popularRightWrapper: {
     marginLeft: 40,
